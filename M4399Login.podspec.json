@@ -1,0 +1,24 @@
+{
+  "name": "M4399Login",
+  "version": "0.0.1",
+  "summary": "4399 Login SDK For iOS",
+  "description": "4399统一登录SDK iOS版",
+  "homepage": "http://docs.getui.com/mobile/ios/overview/",
+  "license": {
+    "type": "Copyright",
+    "text": "4399 Inc，All Rights Reserved."
+  },
+  "authors": {
+    "4399": "http://i.4399.cn"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/4399SDKDev/M4399Login.git",
+    "tag": "0.0.1"
+  },
+  "vendored_frameworks": "M4399Login.framework",
+  "public_header_files":"M4399Login.framework/Headers/*.h",
+  "requires_arc": true
+}
