@@ -1,7 +1,7 @@
 {
   "name": "M4399Login",
-  "version": "0.0.2",
-  "summary": "4399 Login SDK For iOS",
+  "version": "0.0.3",
+  "summary": "4399统一登录SDK",
   "description": "4399统一登录SDK iOS版,用于iOS APP接入4399用户中心，使用4399游戏盒SSO登录 & 用户中心WEB登录",
   "homepage": "https://github.com/4399SDKDev/M4399Login",
   "license": {
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/4399SDKDev/M4399Login.git",
-    "tag": "0.0.2"
+    "tag": "0.0.3"
   },
   "source_files":"M4399Login.framework/Headers/*.h",
   "vendored_frameworks": "M4399Login.framework",
