@@ -24,13 +24,23 @@ RefreshToken没有设置过期时间，但当用户修改密码或其他异常�
 
 ![RefreshToken失效流程](http://ww4.sinaimg.cn/large/006tNbRwgw1f6qqpcwgwwj30mr0gijsf.jpg)
 
-## 接入方式
+## 接入流程
 
-### CocoaPods托管
+### 接入方式
 
+#### CocoaPods托管
 
+可参照Demo工程，在`Podfile`文件中配置4399LoginSDK的托管申明`pod 'M4399Login’`，然后在终端指向项目根目录运行`pod install`即可。
 
-### 直接导入文件
+#### 直接导入文件
+
+直接将`M4399Login.framework`拷贝进工程目录，并引入工程即可。
+
+### 配置UrlSchemes
+
+需为接入应用配置UrlSchemes，便于4399游戏盒授权登录后，能顺利跳转回待接入应用，并且传递参数。
+
+![](https://ww2.sinaimg.cn/large/006tKfTcgw1fblanoz2s2j31kw121e4g.jpg)
 
 
 
@@ -76,7 +86,7 @@ M4399LoginManagerConfig变量说明
 }
 ```
 
-*如果应用启动游戏盒授权后，无法正常返回应用，请检查接入时是否正确配置了`UrlSchemes`，并且在启动时写入`M4399LoginManagerConfig`配置`M4399LoginManager` *
+*如果应用启动游戏盒授权后，无法正常返回应用，请检查接入时是否正确配置了`UrlSchemes`，并且在启动时写入`M4399LoginManagerConfig`配置`M4399LoginManager`，相关配置方法请参考『接入流程-配置UrlSchemes』*
 
 ### 登录
 
@@ -150,33 +160,37 @@ M4399LoginManagerConfig变量说明
 - 请求参数
 
 
-| 参数名           | 备注                          | 
-| ------------- | --------------------------- | 
-| grant_type    | 传递固定参数值`REFRESH_TOKEN` | 
-| client_id     | 4399用户中心分配的ClientID         | 
-| redirect_uri  | 4399用户中心登记的回调地址             | 
-| client_secret | 4399用户中心分配的ClientSecret     | 
-| refresh_token | 游戏盒登录流程中返回的refresh_token     | 
+| 参数名           | 备注                       | 
+| ------------- | ------------------------ | 
+| grant_type    | 传递固定参数值`REFRESH_TOKEN`   | 
+| client_id     | 4399用户中心分配的ClientID      | 
+| redirect_uri  | 4399用户中心登记的回调地址          | 
+| client_secret | 4399用户中心分配的ClientSecret  | 
+| refresh_token | 游戏盒登录流程中返回的refresh_token | 
 
-- 返回值 
+- 返回值
 
-| 参数名           | 备注                          | 
-| ------------- | --------------------------- | 
-| uid    | 4399用户ID | 
-| username     | 用户名         | 
-| nick | 昵称     | 
-| access_token          | 授权令牌                            | 
-| expires_in          | AccessTokne有效时长                            | 
+
+| 参数名          | 备注              | 
+| ------------ | --------------- | 
+| uid          | 4399用户ID        | 
+| username     | 用户名             | 
+| nick         | 昵称              | 
+| access_token | 授权令牌            | 
+| expires_in   | AccessTokne有效时长 | 
 
 注1：部分返回值在使用本SDK时无需关注，此处暂不列出
+
 注2：几个昵称字段中部分可能为空值，APP界面显示昵称时应遵循规则：`nick` > `username`
 
 
-### 4399用户中心WEB登录CODE授权 
+
+### 4399用户中心WEB登录CODE授权
 
 - 接口地址：https://ptlogin.4399.com/oauth2/token.do 
 - 请求方式：GET / POST 
-- 请求参数 
+- 请求参数
+
 
 | 参数名           | 备注                          | 
 | ------------- | --------------------------- | 
@@ -184,24 +198,48 @@ M4399LoginManagerConfig变量说明
 | client_id     | 4399用户中心分配的ClientID         | 
 | redirect_uri  | 4399用户中心登记的回调地址             | 
 | client_secret | 4399用户中心分配的ClientSecret     | 
-| code          | WEB登录流程中返回的CODE    | 
+| code          | WEB登录流程中返回的CODE             | 
+
+- 返回值
 
 
-- 返回值 
-
-| 参数名           | 备注                          | 
-| ------------- | --------------------------- | 
-| uid    | 4399用户ID | 
-| username     | 用户名         | 
-| display_name     | 昵称         | 
-| ext_nick     | 昵称         | 
-| expires_in          | AccessTokne有效时长                            | 
-| expired_at          | AccessTokne过期时间                            |
-| access_token          | 授权令牌                            | 
-| refresh_token          | 授权刷新令牌                            |
+| 参数名           | 备注              | 
+| ------------- | --------------- | 
+| uid           | 4399用户ID        | 
+| username      | 用户名             | 
+| display_name  | 昵称              | 
+| ext_nick      | 昵称              | 
+| expires_in    | AccessTokne有效时长 | 
+| expired_at    | AccessTokne过期时间 | 
+| access_token  | 授权令牌            | 
+| refresh_token | 授权刷新令牌          | 
 
 注1：部分返回值在使用本SDK时无需关注，此处暂不列出
+
 注2：几个昵称字段中部分可能为空值，APP界面显示昵称时应遵循规则：`display_name` > `ext_nick` > `username`
 
 
+
+### 验证已登录用户AccessToken有效性
+
+- 接口地址：https://ptlogin.4399.com/oauth2/validate.do
+- 请求方式：GET / POST
+- 请求参数
+
+
+| 参数名          | 备注                  | 
+| ------------ | ------------------- | 
+| client_id    | 4399用户中心分配的ClientID | 
+| access_token | 待验证的AccessToken     | 
+| uid          | 待验证用户的4399用户ID      | 
+
+- 返回值
+
+
+| 参数名     | 备注                    | 
+| ------- | --------------------- | 
+| message | 异常信息                  | 
+| code    | 请求状态值，`300`为有效，其余均为异常 | 
+
+注1：部分返回值在使用本SDK时无需关注，此处暂不列出
 
