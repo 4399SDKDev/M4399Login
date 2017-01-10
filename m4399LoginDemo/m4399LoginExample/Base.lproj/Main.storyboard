@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRE-an-3w8">
+                                <rect key="frame" x="210" y="30" width="180" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1Ej-PL-kCQ"/>
+                                    <constraint firstAttribute="width" constant="180" id="ljl-OX-wuI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="登入" backgroundImage="btn_normal"/>
+                                <state key="selected" backgroundImage="btn_selected"/>
+                                <state key="highlighted" backgroundImage="btn_selected"/>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tJU-Ye-YS5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Il6-8n-Gn2">
+                                <rect key="frame" x="210" y="100" width="180" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CCD-su-zcp"/>
+                                    <constraint firstAttribute="width" constant="180" id="lS3-Gt-1le"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="注册" backgroundImage="btn_normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cae-en-N2q"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZR-LQ-SyL">
+                                <rect key="frame" x="0.0" y="450" width="600" height="150"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="y0V-Zm-4CG"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" calendarEvent="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mb5-M6-5ha">
+                                <rect key="frame" x="210" y="170" width="180" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="HV6-f0-wrU"/>
+                                    <constraint firstAttribute="height" constant="50" id="oWs-kA-sya"/>
+                                    <constraint firstAttribute="width" constant="180" id="rtx-B4-4r3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="修改用户信息" backgroundImage="btn_normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="btn_selected"/>
+                                <connections>
+                                    <action selector="modifyUserInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b9j-nX-VkI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RZR-LQ-SyL" secondAttribute="bottom" id="LSE-Tq-kmD"/>
+                            <constraint firstItem="Il6-8n-Gn2" firstAttribute="top" secondItem="dRE-an-3w8" secondAttribute="bottom" constant="20" id="RUj-ME-ijv"/>
+                            <constraint firstItem="Il6-8n-Gn2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S1J-Ny-xSW"/>
+                            <constraint firstAttribute="trailing" secondItem="RZR-LQ-SyL" secondAttribute="trailing" id="avS-Fh-gjp"/>
+                            <constraint firstItem="dRE-an-3w8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="fjG-gH-NG1"/>
+                            <constraint firstItem="mb5-M6-5ha" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g1s-aX-9a4"/>
+                            <constraint firstItem="dRE-an-3w8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jWk-gl-tF7"/>
+                            <constraint firstItem="mb5-M6-5ha" firstAttribute="top" secondItem="Il6-8n-Gn2" secondAttribute="bottom" constant="20" id="sc4-30-Nhx"/>
+                            <constraint firstItem="RZR-LQ-SyL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="x7z-Kb-Vm5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logTextView" destination="RZR-LQ-SyL" id="xCL-oc-8xY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="602" y="311"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_normal" width="25" height="25"/>
+        <image name="btn_selected" width="25" height="25"/>
+    </resources>
+</document>

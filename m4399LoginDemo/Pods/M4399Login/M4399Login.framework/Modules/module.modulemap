@@ -1,0 +1,6 @@
+framework module M4399Login {
+  umbrella header "M4399Login.h"
+
+  export *
+  module * { export * }
+}
