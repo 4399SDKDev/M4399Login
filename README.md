@@ -2,6 +2,8 @@
 
 ## 简介
 
+ ![](https://img.shields.io/cocoapods/v/M4399Login.svg?style=flat) ![](https://img.shields.io/cocoapods/p/M4399Login.svg?style=flat) ![](https://img.shields.io/badge/language-ObjectiveC-orange.svg?style=flat) ![](https://img.shields.io/cocoapods/dt/M4399Login.svg?style=flat)
+
 本SDK主要用于4399账号的统一授权登录使用，旨在统一内部产品及外部第三方应用统一规范使用4399账户体系完成登录系统，便于用户使用4399账号登录自己的iOS应用。
 
 框架内置4399游戏盒授权登录 & 4399用户中心WEB登录，根据用户是否安装游戏盒情况，优先选择游戏盒授权登录。
